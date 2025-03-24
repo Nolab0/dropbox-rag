@@ -1,0 +1,15 @@
+dropbox
+pdfplumber
+python-pptx
+python-docx
+pytesseract
+opencv-python
+pdf2image
+Pillow
+python-dotenv
+langchain
+langchain_community
+sentence-transformers
+faiss-cpu
+openai
+langchain-ollama
