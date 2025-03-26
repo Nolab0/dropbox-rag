@@ -102,3 +102,8 @@ The application follows a RAG (Retrieval-Augmented Generation) architecture:
 ## API Endpoints
 
 - `GET` `/query?question=<question>`: Query the processed documents
+
+Example with Paris wikipedia page in Dropbox folder:
+```bash
+curl -X GET "http://localhost:8000/query?question=How%20many%20tourists%20in%20Paris%20region%20in%202019%3F" -H "Accept: application/json" 
+```
