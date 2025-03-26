@@ -1,23 +1,23 @@
+import uvicorn
 from dotenv import load_dotenv
-
+from fastapi import FastAPI, Query
 from dropboxDriver import connect_to_dropbox, list_files
 from rag import create_vector_store, query_rag
 from utils import process_files
 
 load_dotenv()
 
-def main():
-    dbx = connect_to_dropbox()
-    files = list_files(dbx, "")
-    for file in files:
-        print(file.path_display)
+app = FastAPI()
 
-    data_to_embed = process_files(dbx)
-    vector_store = create_vector_store(data_to_embed)
+# Load Dropbox files and create vector store at startup
+dbx = connect_to_dropbox()
+data_to_embed = process_files(dbx)
+vector_store = create_vector_store(data_to_embed)
 
-    response, docs = query_rag(vector_store, "How many tourist in Paris region in 2019 ?")
-    print(response)
+@app.get("/query")
+def query_rag_endpoint(question: str = Query(..., title="User question")):
+    docs, response = query_rag(vector_store, question)
+    return {"response": response, "relevant_snippets": docs}
 
 if __name__ == "__main__":
-    main()
-    
+    uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -1,4 +1,3 @@
-import dropboxDriver
 import pdfplumber
 import pytesseract
 import io
@@ -7,7 +6,6 @@ from PIL import Image
 import numpy as np
 from pptx import Presentation
 from docx import Document
-from dropbox.exceptions import AuthError
 from pdf2image import convert_from_bytes
 
 def extract_text_from_pdf(file_bytes):

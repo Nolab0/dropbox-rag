@@ -39,4 +39,4 @@ def query_rag(vector_store, query):
     docs_content = "\n\n".join(doc.page_content for doc in context)
     messages = prompt.invoke({"question": query, "context": docs_content})
     response = llm.invoke(messages)
-    return docs_content, response
+    return docs_content, response.content

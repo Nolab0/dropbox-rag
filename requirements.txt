@@ -9,7 +9,9 @@ Pillow
 python-dotenv
 langchain
 langchain_community
+langchain_openai
 sentence-transformers
 faiss-cpu
 openai
-langchain-ollama
+fastapi
+uvicorn
