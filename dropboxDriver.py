@@ -1,10 +1,11 @@
-import dropboxDriver
+import dropbox
+import os
 from dropbox.exceptions import AuthError
 
 def connect_to_dropbox():
     """Connect to Dropbox and return the client."""
     try:
-        dbx = dropboxDriver.Dropbox(os.getenv("DROPBOX_ACCESS_TOKEN"))
+        dbx = dropbox.Dropbox(os.getenv("DROPBOX_ACCESS_TOKEN"))
         dbx.users_get_current_account()
         print("Connected to Dropbox successfully.")
         return dbx
@@ -17,7 +18,7 @@ def list_files(dbx, folder_path=""):
     """List files in a Dropbox folder."""
     try:
         response = dbx.files_list_folder(folder_path)
-        return [entry for entry in response.entries if isinstance(entry, dropboxDriver.files.FileMetadata)]
+        return [entry for entry in response.entries if isinstance(entry, dropbox.files.FileMetadata)]
     except Exception as e:
         print(f"Error listing files: {e}")
         return []
@@ -31,3 +32,4 @@ def download_file(dbx, path):
     except Exception as e:
         print(f"Error downloading file {path}: {e}")
         return None
+    
