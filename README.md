@@ -15,6 +15,7 @@ This project implements a Retrieval-Augmented Generation (RAG) API that integrat
 
 - Python 3.8 or higher
 - Dropbox account with API access
+- Dropbox folder filled with internal documents (PDF, DOCX, PPTX, ...)
 - OpenRouter API key for LLM access
 - Tesseract OCR installed on your system
 
@@ -107,3 +108,8 @@ Example with Paris wikipedia page in Dropbox folder:
 ```bash
 curl -X GET "http://localhost:8000/query?question=How%20many%20tourists%20in%20Paris%20region%20in%202019%3F" -H "Accept: application/json" 
 ```
+
+## Points for improvement
+- Adjust ```chunk size``` and ```chunk overlap``` according to the document type.
+- Test and benchmark multiple models (Llama, OpenAI, Gemma, ...)
+- Deploy in a production environment
