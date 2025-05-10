@@ -1,5 +1,4 @@
-# Technical assignment for TowardsChange
-## Minimal RAG API with Dropbox Integration
+# Minimal RAG API with Dropbox Integration
 
 This project implements a Retrieval-Augmented Generation (RAG) API that integrates with Dropbox to process and analyze documents. The system allows users to upload documents to Dropbox and query them using natural language.
 
@@ -17,7 +16,7 @@ This project implements a Retrieval-Augmented Generation (RAG) API that integrat
 - Dropbox account with API access
 - Dropbox folder filled with internal documents (PDF, DOCX, PPTX, ...)
 - OpenRouter API key for LLM access
-- Tesseract OCR installed on your system
+- Tesseract OCR is installed on your system
 
 ## Installation
 
